@@ -5,7 +5,8 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node backend/server.js",
-		"server": "nodemon backend/server.js"
+		"server": "nodemon backend/server.js",
+		"client": "npm start --prefix frontend"
 	},
 	"author": "Kagan Danaci, Seyit Ali Koc, Mertcan Kahvecioglu",
 	"license": "MIT",
@@ -20,3 +21,4 @@
 		"nodemon": "^2.0.22"
 	}
 }
+

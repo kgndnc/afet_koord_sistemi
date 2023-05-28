@@ -31,7 +31,7 @@ const addressSchema = mongoose.Schema(
 			default: false,
 		},
 
-		'ek aciklamalar': {
+		ek_aciklamalar: {
 			type: String,
 			required: false,
 			default: '',
