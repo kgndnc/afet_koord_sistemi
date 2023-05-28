@@ -44,6 +44,7 @@ function AdresIhbar() {
             name="il"
             id="il"
             value={formData.il}
+            defaultValue={''}
           />
         </label>
 
@@ -55,6 +56,7 @@ function AdresIhbar() {
             name="ilce"
             id="ilce"
             value={formData.ilce}
+            defaultValue={''}
           />
         </label>
         <label htmlFor="mahalle">
@@ -65,6 +67,7 @@ function AdresIhbar() {
             name="mahalle"
             id="mahalle"
             value={formData.mahalle}
+            defaultValue={''}
           />
         </label>
         <label htmlFor="sokak/cadde">
@@ -75,6 +78,7 @@ function AdresIhbar() {
             name="sokak/cadde"
             id="sokak/cadde"
             value={formData['sokak/cadde']}
+            defaultValue={''}
           />
         </label>
         <label htmlFor="no">
@@ -85,6 +89,7 @@ function AdresIhbar() {
             name="no"
             id="no"
             value={formData.no}
+            defaultValue={''}
           />
         </label>
         <label htmlFor="ek_aciklamalar">
@@ -95,6 +100,7 @@ function AdresIhbar() {
             name="ek_aciklamalar"
             id="ek_aciklamalar"
             value={formData['ek_aciklamalar']}
+            defaultValue={''}
           />
         </label>
         <input
