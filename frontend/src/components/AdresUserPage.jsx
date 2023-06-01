@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
+import { Helmet } from 'react-helmet'
 
 import axios from 'axios'
 
@@ -11,6 +12,26 @@ function Userpage() {
     no: '',
     ek_aciklamalar: '',
   })
+
+  const isFormValid = useCallback(
+    () =>
+      !!(
+        formData.il &&
+        formData.ilce &&
+        formData.mahalle &&
+        formData['sokak/cadde'] &&
+        formData.no
+      )
+  )
+
+  // const isFormValid = () =>
+  //   !!(
+  //     formData.il &&
+  //     formData.ilce &&
+  //     formData.mahalle &&
+  //     formData['sokak/cadde'] &&
+  //     formData.no
+  //   )
 
   const handleFormChange = event => {
     setFormData(prevData => {
@@ -27,26 +48,33 @@ function Userpage() {
     const baseURL = 'http://localhost:5000/'
     const endpoint = 'api/addresses'
 
-    // TODO: Check if form data is valid (missing fields)
+    // TODO: (zaman kalırsa yap) eksik kutucukları kırmızı yap
+
+    // TODO: Adres daha önce gönderildiyse belirt
+
+    if (!isFormValid()) {
+      alert('Lütfen boş alanları doldurun.')
+      return
+    }
 
     // make post request to backend
     axios
       .post(endpoint, { address: formData }, { baseURL })
       .then(response => {
-        console.log(
-          "POST request sent...\nHere's the response back from server:"
-        )
-
-        console.log(response)
+        if (process.env.NODE_ENV === 'development') {
+          console.log(
+            "POST request sent...\nHere's the response back from server:"
+          )
+          console.log(response)
+        }
       })
       .catch(error => {
-        console.log(error)
+        if (process.env.NODE_ENV === 'development') console.log(error)
       })
 
     console.log('Form submitted')
 
     // Clear form
-    // TODO: if successful
     setFormData({
       il: '',
       ilce: '',
@@ -57,10 +85,8 @@ function Userpage() {
     })
   }
 
-  console.log(formData)
-
   return (
-    <div>
+    <div className="mx-auto flex flex-col items-center">
       <h2>Adres İhbar Formu</h2>
       <form
         className="flex max-w-md flex-col gap-3 border-2"
@@ -68,102 +94,78 @@ function Userpage() {
         onSubmit={handleFormSubmit}
       >
         <label htmlFor="il">
-          İL:
+          İl:
           <input
             type="text"
             className=""
             name="il"
             id="il"
             value={formData.il}
+            readOnly
           />
         </label>
 
         <label htmlFor="ilce">
-          İLÇE:
+          İlçe:
           <input
             type="text"
             className=""
             name="ilce"
             id="ilce"
             value={formData.ilce}
+            readOnly
           />
         </label>
         <label htmlFor="mahalle">
-          MAHALLE:
+          Mahalle:
           <input
             type="text"
             className=""
             name="mahalle"
             id="mahalle"
             value={formData.mahalle}
+            readOnly
           />
         </label>
         <label htmlFor="sokak/cadde">
-          SOKAK/CADDE:
+          Sokak/Cadde:
           <input
             type="text"
             className=""
             name="sokak/cadde"
             id="sokak/cadde"
             value={formData['sokak/cadde']}
+            readOnly
           />
         </label>
         <label htmlFor="no">
-          NO:
+          No:
           <input
             type="text"
             className=""
             name="no"
             id="no"
             value={formData.no}
+            readOnly
           />
         </label>
         <label htmlFor="ek_aciklamalar">
-          EK AÇIKLAMALAR:
+          Ek Açıklamalar:
           <input
             type="text"
             className=""
             name="ek_aciklamalar"
             id="ek_aciklamalar"
             value={formData['ek_aciklamalar']}
+            readOnly
           />
         </label>
         <input
           className="w-36 rounded bg-blue-400 p-2 text-sm hover:bg-blue-300"
           type="submit"
+          value="Gönder"
         ></input>
       </form>
-
-      <button
-        className="mt-4 rounded bg-red-400 p-2"
-        onClick={() => {
-          // TODO: Place this button to Admin page
-
-          // Backend URL
-          const baseURL = 'http://localhost:5000/'
-          const endpoint = 'api/addresses'
-
-          // make post request to backend
-          axios
-            .get(endpoint, { baseURL })
-            .then(response => {
-              console.log(
-                "GET request sent...\nHere's the response back from server:"
-              )
-
-              console.log(
-                response.data.filter(value => value.ulasildi === false)
-              )
-
-              // Data is in `response.data`
-            })
-            .catch(error => {
-              console.log(error)
-            })
-        }}
-      >
-        Adresleri listele
-      </button>
     </div>
   )
 }
