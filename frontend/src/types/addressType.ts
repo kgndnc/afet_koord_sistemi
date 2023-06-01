@@ -1,4 +1,4 @@
-export interface Address {
+export type Address = {
   _id: string
   il: string
   ilce: string

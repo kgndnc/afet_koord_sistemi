@@ -45,7 +45,7 @@ function Userpage() {
     event.preventDefault()
 
     // Backend URL
-    const baseURL = 'http://localhost:5000/'
+    const baseURL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/'
     const endpoint = 'api/addresses'
 
     // TODO: (zaman kalırsa yap) eksik kutucukları kırmızı yap
@@ -61,7 +61,7 @@ function Userpage() {
     axios
       .post(endpoint, { address: formData }, { baseURL })
       .then(response => {
-        if (process.env.NODE_ENV === 'development') {
+        if (import.meta.env.DEV) {
           console.log(
             "POST request sent...\nHere's the response back from server:"
           )
@@ -69,7 +69,7 @@ function Userpage() {
         }
       })
       .catch(error => {
-        if (process.env.NODE_ENV === 'development') console.log(error)
+        if (import.meta.env.DEV) console.log(error)
       })
 
     console.log('Form submitted')
@@ -101,7 +101,6 @@ function Userpage() {
             name="il"
             id="il"
             value={formData.il}
-            readOnly
           />
         </label>
 
@@ -113,7 +112,6 @@ function Userpage() {
             name="ilce"
             id="ilce"
             value={formData.ilce}
-            readOnly
           />
         </label>
         <label htmlFor="mahalle">
@@ -124,7 +122,6 @@ function Userpage() {
             name="mahalle"
             id="mahalle"
             value={formData.mahalle}
-            readOnly
           />
         </label>
         <label htmlFor="sokak/cadde">
@@ -135,7 +132,6 @@ function Userpage() {
             name="sokak/cadde"
             id="sokak/cadde"
             value={formData['sokak/cadde']}
-            readOnly
           />
         </label>
         <label htmlFor="no">
@@ -146,7 +142,6 @@ function Userpage() {
             name="no"
             id="no"
             value={formData.no}
-            readOnly
           />
         </label>
         <label htmlFor="ek_aciklamalar">
@@ -157,7 +152,6 @@ function Userpage() {
             name="ek_aciklamalar"
             id="ek_aciklamalar"
             value={formData['ek_aciklamalar']}
-            readOnly
           />
         </label>
         <input

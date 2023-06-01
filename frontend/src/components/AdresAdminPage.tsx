@@ -10,10 +10,10 @@ function AdresAdminPage() {
 
   const getAddresses = () => {
     // Backend URL
-    const baseURL = 'http://localhost:5000/'
+    const baseURL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000/'
     const endpoint = 'api/addresses'
 
-    // make post request to backend
+    // make get request to backend
     axios
       .get(endpoint, { baseURL })
       .then(response => {
@@ -30,6 +30,8 @@ function AdresAdminPage() {
     getAddresses()
   }, [])
 
+  console.log(addresses)
+
   return (
     <>
       <div className="addresses mx-auto grid max-w-3xl grid-cols-2 gap-8">
@@ -43,7 +45,13 @@ function AdresAdminPage() {
               addresses
                 .filter(val => val.ulasildi === false)
                 .map(address => {
-                  return <AdressBox {...address} key={address._id} />
+                  return (
+                    <AdressBox
+                      key={address._id}
+                      {...address}
+                      setAddresses={setAddresses}
+                    />
+                  )
                 })
             )}
           </div>
@@ -59,11 +67,18 @@ function AdresAdminPage() {
               addresses
                 .filter(val => val.ulasildi === true)
                 .map(address => {
-                  return <AdressBox {...address} key={address._id} />
+                  return (
+                    <AdressBox
+                      key={address._id}
+                      {...address}
+                      setAddresses={setAddresses}
+                    />
+                  )
                 })
             )}
           </div>
         </div>
+        <dialog>Hello</dialog>
       </div>
     </>
   )
