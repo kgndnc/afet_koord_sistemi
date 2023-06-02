@@ -24,15 +24,6 @@ function Userpage() {
       )
   )
 
-  // const isFormValid = () =>
-  //   !!(
-  //     formData.il &&
-  //     formData.ilce &&
-  //     formData.mahalle &&
-  //     formData['sokak/cadde'] &&
-  //     formData.no
-  //   )
-
   const handleFormChange = event => {
     setFormData(prevData => {
       return {
@@ -85,16 +76,27 @@ function Userpage() {
     })
   }
 
+  // TODO: ÇOK ÖNEMLİ!!! ÖNCE BUNU YAP
+  //       Login sayfası ve context api
+
   return (
-    <div className="mx-auto flex flex-col items-center">
-      <h2>Adres İhbar Formu</h2>
+    <div className="flex flex-col items-center">
+      <h2 className="mb-8 mt-16 place-self-auto text-2xl">Adres İhbar Formu</h2>
       <form
-        className="flex max-w-md flex-col gap-3 border-2"
+        className="grid max-w-lg grid-cols-[1fr_3fr] gap-2"
         onChange={handleFormChange}
         onSubmit={handleFormSubmit}
       >
-        <label htmlFor="il">
-          İl:
+        <div className="labels grid grid-flow-row items-center justify-items-end gap-3">
+          <label htmlFor="il">İl:</label>
+          <label htmlFor="ilce">İlçe:</label>
+          <label htmlFor="mahalle">Mahalle:</label>
+          <label htmlFor="sokak/cadde">Sokak/Cadde:</label>
+          <label htmlFor="no">No:</label>
+          <label htmlFor="ek_aciklamalar">Ek Açıklamalar:</label>
+        </div>
+
+        <div className="inputs grid grid-flow-row gap-3">
           <input
             type="text"
             className=""
@@ -102,10 +104,7 @@ function Userpage() {
             id="il"
             value={formData.il}
           />
-        </label>
 
-        <label htmlFor="ilce">
-          İlçe:
           <input
             type="text"
             className=""
@@ -113,9 +112,7 @@ function Userpage() {
             id="ilce"
             value={formData.ilce}
           />
-        </label>
-        <label htmlFor="mahalle">
-          Mahalle:
+
           <input
             type="text"
             className=""
@@ -123,9 +120,7 @@ function Userpage() {
             id="mahalle"
             value={formData.mahalle}
           />
-        </label>
-        <label htmlFor="sokak/cadde">
-          Sokak/Cadde:
+
           <input
             type="text"
             className=""
@@ -133,9 +128,7 @@ function Userpage() {
             id="sokak/cadde"
             value={formData['sokak/cadde']}
           />
-        </label>
-        <label htmlFor="no">
-          No:
+
           <input
             type="text"
             className=""
@@ -143,9 +136,7 @@ function Userpage() {
             id="no"
             value={formData.no}
           />
-        </label>
-        <label htmlFor="ek_aciklamalar">
-          Ek Açıklamalar:
+
           <input
             type="text"
             className=""
@@ -153,9 +144,10 @@ function Userpage() {
             id="ek_aciklamalar"
             value={formData['ek_aciklamalar']}
           />
-        </label>
+        </div>
+
         <input
-          className="w-36 rounded bg-blue-400 p-2 text-sm hover:bg-blue-300"
+          className="col-span-2 mt-3 w-36 place-self-center rounded bg-blue-400 p-2 text-sm hover:bg-blue-300"
           type="submit"
           value="Gönder"
         ></input>

@@ -19,7 +19,15 @@ function AdressBox({
 }: AddressBoxProps) {
   // Change state and send PUT request to backend
   const handleClick = async (id: string) => {
-    let newValue
+    const data = {
+      il,
+      ilce,
+      mahalle,
+      'sokak/cadde': sokakCadde,
+      ulasildi: !ulasildi,
+      no,
+      ek_aciklamalar,
+    }
 
     setAddresses(oldData =>
       oldData.map(val =>
@@ -33,16 +41,6 @@ function AdressBox({
 
     // make PUT request to backend (update item)
 
-    const data = {
-      il,
-      ilce,
-      mahalle,
-      'sokak/cadde': sokakCadde,
-      ulasildi: !ulasildi,
-      no,
-      ek_aciklamalar,
-    }
-
     axios
       .put(endpoint, data, {
         baseURL,
@@ -51,7 +49,7 @@ function AdressBox({
       })
       .then(response => {
         // Data is in `response.data`
-        alert(JSON.stringify(response.data))
+        console.log(response.data)
       })
       .catch(error => {
         console.log(error)

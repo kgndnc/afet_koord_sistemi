@@ -1,9 +1,7 @@
 import ReactDOM from 'react-dom/client'
-import { Provider } from 'react-redux'
 
 import './index.css'
 import App from './App'
-import { store } from './store'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
@@ -11,6 +9,9 @@ import Login from './pages/Login'
 import Bilgilendirme from './pages/Bilgilendirme'
 import AdresIhbar from './pages/AdresIhbar'
 import React from 'react'
+
+import reducer, { initialState } from './reducer.js'
+import { StateProvider } from './StateProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 
@@ -35,8 +36,8 @@ const router = createBrowserRouter([
 
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <StateProvider initialState={initialState} reducer={reducer}>
       <RouterProvider router={router} />
-    </Provider>
+    </StateProvider>
   </React.StrictMode>
 )

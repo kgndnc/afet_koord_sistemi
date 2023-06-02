@@ -3,9 +3,12 @@ import Userpage from '../components/AdresUserPage'
 import AdresAdminPage from '../components/AdresAdminPage'
 
 import { Helmet } from 'react-helmet'
+import { useStateValue } from '../StateProvider'
 
 function AdresIhbar() {
-  const [isAdmin, setAdmin] = useState(true)
+  // const [isAdmin, setAdmin] = useState(true)
+
+  const [{ isAdmin }, dispatch] = useStateValue()
 
   return (
     <div className="font-sans">
