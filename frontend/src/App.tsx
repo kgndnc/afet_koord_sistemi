@@ -1,24 +1,18 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useStateValue } from './StateProvider'
 
 import './App.css'
+import AdminTag from './components/AdminTag'
 
 function App() {
   const [{ isAdmin }, dispatch] = useStateValue()
+  const navigate = useNavigate()
+
+  console.log(import.meta.env.BASE_URL)
 
   return (
     <div className="App">
-      <p>{isAdmin ? "You're admin" : 'regular user'}</p>
-      <button
-        onClick={() => {
-          const actionType = isAdmin ? 'LOG_OUT' : 'LOG_IN'
-
-          dispatch({ type: actionType })
-        }}
-        className="bg-fuchsia-700 p-2"
-      >
-        Click to {isAdmin ? 'log out' : 'log in'}
-      </button>
+      <AdminTag />
       <nav className="mt-4 text-center">
         <ul className="space-y-2">
           <li>
@@ -32,7 +26,14 @@ function App() {
           </li>
 
           <li>
-            <Link to={'/bilgilendirme'}>Bilgilendirme</Link>
+            {/* <Link to={import.meta.env.BASE_URL + 'bilgilendirme2.html'}>
+              Bilgilendirme
+            </Link> */}
+
+            <a href="/bilgilendirme2.html">Bilgilendirme</a>
+          </li>
+          <li>
+            <a href="/gerekli_malzeme.html">Gerekli Yardım Malzemeleri</a>
           </li>
         </ul>
       </nav>

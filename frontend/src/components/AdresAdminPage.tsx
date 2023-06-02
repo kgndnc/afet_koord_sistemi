@@ -34,7 +34,7 @@ function AdresAdminPage() {
 
   return (
     <>
-      <div className="addresses mx-auto grid max-w-3xl grid-cols-2 gap-8">
+      <div className="addresses mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-8">
         <div className="addresses_ulasilmadi border-2 ">
           <h3 className="my-4 text-center font-bold">Ulaşılmayan Adresler</h3>
 

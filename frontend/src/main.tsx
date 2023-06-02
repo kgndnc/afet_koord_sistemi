@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import App from './App'
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import {
+  createBrowserRouter,
+  RouterProvider,
+  useNavigate,
+} from 'react-router-dom'
 
 import Login from './pages/Login'
 import Bilgilendirme from './pages/Bilgilendirme'
@@ -11,7 +15,7 @@ import AdresIhbar from './pages/AdresIhbar'
 import React from 'react'
 
 import reducer, { initialState } from './reducer.js'
-import { StateProvider } from './StateProvider'
+import { StateProvider, useStateValue } from './StateProvider'
 
 const root = ReactDOM.createRoot(document.getElementById('root')!)
 
@@ -24,10 +28,10 @@ const router = createBrowserRouter([
     path: '/login',
     element: <Login />,
   },
-  {
-    path: '/bilgilendirme',
-    element: <Bilgilendirme />,
-  },
+  // {
+  //   path: '/bilgilendirme',
+  //   element: <Bilgilendirme />,
+  // },
   {
     path: '/adres-ihbar',
     element: <AdresIhbar />,

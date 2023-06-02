@@ -4,14 +4,18 @@ import AdresAdminPage from '../components/AdresAdminPage'
 
 import { Helmet } from 'react-helmet'
 import { useStateValue } from '../StateProvider'
+import { useNavigate } from 'react-router-dom'
+import AdminTag from '../components/AdminTag'
 
 function AdresIhbar() {
   // const [isAdmin, setAdmin] = useState(true)
 
   const [{ isAdmin }, dispatch] = useStateValue()
+  const navigate = useNavigate()
 
   return (
     <div className="font-sans">
+      <AdminTag />
       <Helmet>
         <title>
           Adres İhbar Sayfası | Afet Bilgilendirme ve Koordinasyon Sistemi
@@ -19,17 +23,6 @@ function AdresIhbar() {
       </Helmet>
 
       {isAdmin ? <AdresAdminPage /> : <Userpage />}
-
-      <div className="mx-auto max-w-3xl">
-        <button
-          className="mb-2 mt-4 block rounded bg-red-700 p-2"
-          onClick={() => {
-            setAdmin(v => !v)
-          }}
-        >
-          Click here to {isAdmin ? 'logout' : 'login as admin'}
-        </button>
-      </div>
     </div>
   )
 }

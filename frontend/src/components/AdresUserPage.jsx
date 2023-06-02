@@ -74,10 +74,9 @@ function Userpage() {
       no: '',
       ek_aciklamalar: '',
     })
-  }
 
-  // TODO: ÇOK ÖNEMLİ!!! ÖNCE BUNU YAP
-  //       Login sayfası ve context api
+    alert('Adres başarıyla kaydedildi.')
+  }
 
   return (
     <div className="flex flex-col items-center">

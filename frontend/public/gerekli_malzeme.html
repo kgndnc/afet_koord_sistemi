@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <title>Afet Bilgilendirme ve Yardım Koordinasyon</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style the header */
+      .header {
+        background-color: #f1f1f1;
+        padding: 20px;
+        text-align: center;
+      }
+
+      /* Style the top navigation bar */
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      /* Style the topnav links */
+      .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      /* Change color on hover */
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      /* Create three equal columns that floats next to each other */
+      .column_left {
+        float: left;
+        width: 20%;
+        height: 100%;
+        padding: 15px;
+      }
+
+      .column_middle {
+        float: right;
+        width: 80%;
+        padding: 15px;
+      }
+
+      .column_right {
+        float: right;
+        width: 10%;
+      }
+
+      /* Clear floats after the columns */
+      .row::after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+
+      /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body onload="Deprem()">
+    <div class="header">
+      <h1>Afet Bilgilendirme ve Yardım Koordinasyon</h1>
+    </div>
+
+    <div class="topnav">
+      <a href="/">Anasayfa</a>
+      <a href="/bilgilendirme2.html">Bilgilendirme</a>
+    </div>
+
+    <div class="row">
+      <div class="column_middle">
+        <h2 id="title">Column</h2>
+        <p id="text" style="font-size: 20px">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit
+          amet pretium urna. Vivamus venenatis velit nec neque ultricies, eget
+          elementum magna tristique. Quisque vehicula, risus eget aliquam
+          placerat, purus leo tincidunt eros, eget luctus quam orci in velit.
+          Praesent scelerisque tortor sed accumsan convallis.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      var text = document.getElementById('text')
+      var title = document.getElementById('title')
+      function Deprem() {
+        title.innerText =
+          'Deprem Gerçekleştiğinde Gerekli Olabilecek Yardım Malzemeleri'
+        text.innerHTML =
+          '<ul>' +
+          '<li>Elektrikli ısıtıcı</li>' +
+          '<li>Büyük-küçük tüp</li>' +
+          '<li>Odun sobası, odun, kömür sobası</li>' +
+          '<li>Cep ısıtıcısı, powerbank, jeneratör</li>' +
+          '<li>Çocuk (1-5 yaş) ve erişkin mont</li>' +
+          '<li>Kadın-erkek iç giyim ve çorap</li>' +
+          '<li>Kadın-erkek ayakkabı</li>' +
+          '<li>Kadın-erkek polar</li>' +
+          '<li>Kadın-erkek içlik</li>' +
+          '<li>Yağmurluk - panço</li>' +
+          '<li>Uyku tulumu - yastık,</li>' +
+          '<li>Yatak ve nevresim takımı</li>' +
+          '<li>Tek kullanımlık tabak- bardak- çatal-kaşık</li>' +
+          '<li>Tava-ketıl</li>' +
+          '<li>Kavurma- barbunya - peynir - konserve</li>' +
+          '<li>Çay-kahve</li>' +
+          '<li>Kaşar-peynir-zeytin</li>' +
+          '<li>Su-ekmek-hazır gıda</li>' +
+          '</ul>'
+      }
+    </script>
+  </body>
+</html>

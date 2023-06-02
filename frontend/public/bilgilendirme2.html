@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <title>Afet Bilgilendirme ve Yardım Koordinasyon</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .button_left {
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #f4511e;
+        border: none;
+        color: #ffffff;
+        text-align: center;
+        font-size: 25px;
+        padding: 20px;
+        width: 100%;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Style the header */
+      .header {
+        background-color: #f1f1f1;
+        padding: 20px;
+        text-align: center;
+      }
+
+      /* .header > h1 {
+        font-family: 'Inter var', Arial, sans-serif;
+      } */
+
+      /* Style the top navigation bar */
+      .topnav {
+        overflow: hidden;
+        background-color: #333;
+      }
+
+      /* Style the topnav links */
+      .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+
+      /* Change color on hover */
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      /* Create three equal columns that floats next to each other */
+      .column_left {
+        float: left;
+        width: 20%;
+        height: 100%;
+        padding: 15px;
+      }
+
+      .column_middle {
+        float: right;
+        width: 80%;
+        padding: 15px;
+      }
+
+      .column_right {
+        float: right;
+        width: 10%;
+      }
+
+      /* Clear floats after the columns */
+      .row::after {
+        content: '';
+        display: table;
+        clear: both;
+      }
+
+      /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+      @media screen and (max-width: 600px) {
+        .column {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body onload="DogalAfetButton()">
+    <div class="header">
+      <h1>Afet Bilgilendirme ve Yardım Koordinasyon</h1>
+    </div>
+
+    <div class="topnav">
+      <a href="/">Anasayfa</a>
+      <a href="/gerekli_malzeme.html">Gerekli Yardım Malzemeleri</a>
+    </div>
+
+    <div class="column_left">
+      <button class="button_left" onclick="DogalAfetButton()">
+        Doğal Afet Nedir
+      </button>
+      <button class="button_left" onclick="DepremButton()">Deprem Nedir</button>
+      <button class="button_left" onclick="SelButton()">Sel Nedir</button>
+      <button class="button_left" onclick="HeyelanButton()">
+        Heyelan Nedir
+      </button>
+      <button class="button_left" onclick="YangınButton()">
+        Orman Yangını Nedir
+      </button>
+      <button class="button_left" onclick="CigButton()">Çığ Nedir</button>
+    </div>
+
+    <div class="row">
+      <div class="column_middle">
+        <h2 id="title">DOĞAL AFET NEDİR?</h2>
+        <p id="text" style="font-size: 18px"></p>
+      </div>
+    </div>
+
+    <script>
+      var text = document.getElementById('text')
+      var title = document.getElementById('title')
+      function DogalAfetButton() {
+        title.innerText = 'DOĞAL AFET NEDİR?'
+        text.innerHTML =
+          'Doğal afetler, insanların önleyemediği ve çoğunu öngöremediği doğal olaylardır. Genellikle insan ölümleri veya mal kayıpları ile sonuçlanır.<br>Doğal afet; genellikle insanların kontrolü dışında gerçekleşen ve gerekli önlemler alınmadığı takdirde büyük can ve mal kayıplarına yol açan doğa olaylarıdır. Bu olaylar, çoğunlukla kısa sürelerde gerçekleşir. Başladıktan sonra insanlar tarafından engellenemez.<br>Doğal afetler, “jeolojik” ve “meteorolojik” olmak üzere iki gruba ayrılır. Kaynağını doğrudan yer kabuğundan ya da yerin derinliklerinden alan jeolojik doğal afetler; deprem, heyelan, yanardağ patlamaları, tsunami gibi olaylardır. Atmosferdeki doğa olayları sonucunda meydana gelen meteorolojik doğal afetler ise; sel, fırtına, tayfun, kasırga, kuraklık, çığ, erozyon ve su taşkınları gibi olaylardır.' +
+          '<br><br><h3>Doğal Afetlerin Özellikleri</h3>' +
+          'Afetlerin en büyük özellikleri şunlardır; doğal veya doğa ile bağlantılı olaylardır, can ve mal kaybına yol açar, çok kısa zamanda meydana gelir, başladıktan sonra insanlar tarafından engellenemez.' +
+          '<br><br>Doğal afetlerle ilgili diğer bazı spesifik özellikleri şöyle sıralayabiliriz; ' +
+          '<ul>' +
+          '<li>Doğal afetler; önceden kestirilemeyen çeşitli güç ve genişlikte olabilir,</li>' +
+          '<li>Meydana geldikleri bölgenin alt yapısını ve ekonomik düzenini bozar,</li>' +
+          '<li>İnsanlar üzerinde şok tesiri bırakır, travmalara yol açar,</li>' +
+          '<li>Ölüm, yaralanma, sakatlanma gibi sonuçlar doğurur,</li>' +
+          '<li>Bulaşıcı ve salgın hastalıklara yol açabilir,</li>' +
+          '<li>Devletin planlı yatırımlarını geciktirir veya durdurur.</li>' +
+          '</ul>'
+      }
+
+      function DepremButton() {
+        title.innerText = 'DEPREM NEDİR?'
+        text.innerHTML =
+          'Türkiye de dahil olmak üzere birçok ülkede büyük zararlara sebep olan deprem, yerkabuğu içinde meydana gelen fay kırıklarından açığa çıkan enerjinin dalgalar halinde yayılarak ani titreşimlere sebep olması ve bu titreşimlerin yeryüzünde sarsılmalar olarak hissedilmesi şeklinde oluşur. Yer katmanlarında oluşan şok dalgalarının sonucudur. Magma üzerinde yüzen levhalar, konveksiyonel akım sayesinde sürekli hareket halindedir. Kıtaların hareketi ile plato sınırlarında kaynama ve ayrılmadaki sürtünmeden oluşan kinetik enerji, aniden büyük bir güçle boşalabilir.' +
+          '<br><br><h3>Deprem Öncesi Alınacak Önlemler Nelerdir?</h3>' +
+          '<ul>' +
+          '<li>Yerleşim bölgeleri titizlikle belirlenmelidir. Kaygan ve ovalık bölgeler iskana açılmamalıdır. Konutlar gevşek toprağa sahip meyilli arazilere yapılmamalıdır.</li>' +
+          '<li>Yapılar deprem etkilerine karşı dayanıklı inşa edilmelidir. (Yapı Tekniğine ve İnşaat Yönetmeliğine uygun olarak)</li>' +
+          '<li>İmar planında konuta ayrılmış yerler dışındaki yerlere ev ve bina yapılmamalıdır.</li>' +
+          '<li>Dik yarların yakınına, dik boğaz ve vadilerin içine bina yapılmamalıdır.</li>' +
+          '<li>Çok kar yağan ve çığ gelen yamaçlarda bina yapılmamalıdır.</li>' +
+          '<li>Mevcut binaların dayanıklılıkları arttırılmalıdır.</li>' +
+          '<li>Konutlara deprem sigortası yaptırılmalıdır.</li>' +
+          '</ul>' +
+          '<br>Bu önlemlerin yanı sıra, yapısal olamayan, yani binadan değil de eşyalardan kaynaklanacak hasarlardan korunmak için günlük kullandığımız eşyalarımızın ev içerisine yerleştirilmesinde aşağıda sayılan önlemleri almalıyız:' +
+          '<ul>' +
+          '<li>Dolap üzerine konulan eşya ve büro malzemeleri kayarak düşmelerini önlemek için plastik tutucu malzeme veya yapıştırıcılarla sabitlenmelidir.</li>' +
+          '<li>Soba ve diğer ısıtıcılar sağlam malzemelerle duvara veya yere sabitlenmelidir.</li>' +
+          '<li>Dolaplar ve devrilebilecek benzeri eşyaları birbirine ve duvara sabitlenmelidir. Eğer sabitlenen eşya ve duvar arasında boşluk kalıyorsa, çarpma etkisini düşürmek için araya bir dolgu malzemesi konulmalıdır.</li>' +
+          '<li>Tavan ve duvara asılan avize, klima vb. cihazlar bulundukları yere ağırlıklarını taşıyacak şekilde duvar ve pencerelerden yeterince uzağa ve kanca ile asılmalıdır.</li>' +
+          '<li>İçinde ağır eşyalar bulunan dolap kapakları mekanik kilitler takılarak sıkıca kapalı kalmaları sağlanmalı.</li>' +
+          '<li>Tezgah üzerindeki kayabilecek beyaz eşyalarımızın altına metal profil koyarak bunların kayması önlenmelidir.</li>' +
+          '<li>Zehirli, patlayıcı, yanıcı maddeler düşmeyecek bir konumda sabitlenmeli ve kırılmayacak bir şekilde depolanmalıdır. Bu maddelerin üzerlerine fosforlu, belirleyici etiketler konulmalıdır.</li>' +
+          '<li>Rafların önüne elastik bant ya da tel eklenebilir. Küçük nesneler ve şişeler, birbirlerine çarpmayacak ve devrilmeyecek şekilde, kutuların içine yerleştirilmelidir.</li>' +
+          '<li>Gaz kaçağı ve yangına karşı, gaz vanası ve elektrik sigortalarını otomatik hale getirilmelidir.</li>' +
+          '<li>Binadan acilen çıkmak için kullanılacak yollardaki tehlikeler ortadan kaldırılmalı, bu yollar işaretlemeli, çıkışı engelleyebilecek eşyalar çıkış yolu üzerinden kaldırılmalıdır.</li>' +
+          '<li>eniş çıkış yolları oluşturulmalıdır. Dışa doğru açılan kapılar kullanılmalı, acil çıkış kapıları kilitli olmamalıdır. Acil çıkışlar aydınlatılmalıdır.</li>' +
+          '<li>Karyolalar pencerenin ve üzerine devrilebilecek ağır dolapların yanına konulmamalı, karyolanın üzerinde ağır eşya olan raf bulundurulmamalıdır.</li>' +
+          '<li>Tüm bireylerin katılımı ile (evde, iş yerinde, apartmanda, okulda) “Afete hazırlık planları” yapılmalı, her altı ayda bir bu plan gözden geçirilmelidir. Zaman zaman bu plana göre nasıl davranılması gerektiğinin tatbikatları yapılmalıdır.</li>' +
+          '<li>Bir afet ve acil durumda eve ulaşılamayacak durumlar için aile bireyleri ile iletişimin nasıl sağlayacağı, alternatif buluşma yerleri ve bireylerin ulaşabileceği bölge dışı bağlantı kişisi (ev, işyeri, okul içinde, dışında ve ya mahalle dışında) belirlenmelidir.</li>' +
+          '<li>Önemli evrakların (kimlik kartları, tapu, sigorta belgeleri, sağlık karnesi, diplomalar, pasaport, banka cüzdanı vb.) kopyaları hazırlanarak su geçirmeyecek bir şekilde saklanmalı, ayrıca bu evrakların bir örneği de bölge dışı bağlantı kişisinde bulunmalıdır.</li>' +
+          '</ul>' +
+          '<br>Bina yönetimince önceden belirlenen, mesken veya işyerinin özelliği ve büyüklüğüne göre uygun yangın söndürme cihazı mutlaka bulundurulmalı ve periyodik bakımları da yaptırılmalıdır. Bu cihazlar;' +
+          '<ul>' +
+          '<li>Kolayca ulaşılabilecek bir yerde tutulmalıdır.</li>' +
+          '<li>Yeri herkes tarafından bilinmelidir.</li>' +
+          '<li>Duvara sıkıca sabitlenmelidir.</li>' +
+          '<li>Her yıl ilgili firma tarafından bakımı yapılmalıdır.</li>' +
+          '<li>Bir kez kullanıldıktan sonra mutlaka tekrar doldurulmalıdır.</li>' +
+          '<li>Binalarda asansörlerin kapı yanlarına "Deprem Sırasında Kullanılmaz" levhası asılmalıdır.</li>' +
+          '</ul>' +
+          '<br><br><h3>Deprem Anında Neler Yapılmalıdır?</h3>' +
+          'Deprem anında bina içerisindeyseniz:' +
+          '<ul>' +
+          '<li>Balkona çıkılmamalıdır.</li>' +
+          '<li>Balkonlardan ya da pencerelerden aşağıya atlanmamalıdır.</li>' +
+          '<li>Kesinlikle asansör kullanılmamalıdır.</li>' +
+          '<li>Telefonlar acil durum ve yangınları bildirmek dışında kullanılmamalıdır.</li>' +
+          '<li>Kibrit, çakmak yakılmamalı, elektrik düğmelerine dokunulmamalıdır.</li>' +
+          '<li>Tekerlekli sandalyede isek tekerlekler kilitlenerek baş ve boyun korumaya alınmalıdır.</li>' +
+          '<li>Mutfak, imalathane, laboratuar gibi iş aletlerinin bulunduğu yerlerde; ocak, fırın ve bu gibi cihazlar kapatılmalı, dökülebilecek malzeme ve maddelerden uzaklaşılmalıdır.</li>' +
+          '<li>Sarsıntı geçtikten sonra elektrik, gaz ve su vanalarını kapatılmalı, soba ve ısıtıcılar söndürülmelidir.</li>' +
+          '<li>Diğer güvenlik önlemleri alınarak gerekli olan eşya ve malzemeler alınarak bina daha önce tespit edilen yoldan derhal terk edilip toplanma bölgesine gidilmelidir.</li>' +
+          '<li>Okulda sınıfta ya da büroda ise sağlam sıra, masa altlarında ve ya yanında; koridorsa ise duvarın yanına hayat üçgeni oluşturacak şekilde ÇÖK-KAPAN-TUTUN hareketi ile baş ve boyun korunmalıdır.</li>' +
+          '<li>Pencerelerden ve camdan yapılmış eşyalardan uzak durulmalıdır.</li>' +
+          '</ul>' +
+          '<br>Deprem anında açık alandaysanız:' +
+          '<ul>' +
+          '<li>Enerji hatları ve direklerinden, ağaçlardan, diğer binalardan ve duvar diplerinden uzaklaşılmalıdır.Açık arazide çömelerek etraftan gelen tehlikelere karşı hazırlıklı olunmalıdır.</li>' +
+          '<li>Toprak kayması olabilecek, taş veya kaya düşebilecek yamaç altlarında bulunulmamalıdır. Böyle bir ortamda bulunuluyorsa seri şekilde güvenli bir ortama geçilmelidir.</li>' +
+          '<li>Binalardan düşebilecek baca, cam kırıkları ve sıvalara karşı tedbirli olunmalıdır.</li>' +
+          '<li>Toprak altındaki kanalizasyon, elektrik ve gaz hatlarından gelecek tehlikelere karşı dikkatli olunmalıdır.</li>' +
+          '<li>Deniz kıyısından uzaklaşılmalıdır.</li>' +
+          '</ul>' +
+          '<br>Deprem anında araç kullanıyorsanız:' +
+          '<ul>' +
+          '<li>Sarsıntı sırasında karayolunda seyir halindeyseniz, bulunduğunuz yer güvenli ise; yolu kapatmadan sağa yanaşıp durulmalıdır. Kontak anahtarı yerinde bırakılıp, pencereler kapalı olarak araç içerisinde beklenmelidir. Sarsıntı durduktan sonra açık alanlara gidilmelidir.</li>' +
+          '<li>Araç meskun mahallerde ya da güvenli bir yerde değilse(ağaç ya da enerji hatları veya direklerinin yanında, köprü üstünde vb.); durdurulmalı, kontak anahtarı üzerinde bırakılarak terk edilmeli ve trafikten uzak açık alanlara gidilmelidir.</li>' +
+          '<li>Sarsıntı sırasında bir tünelin içinde iseniz ve çıkışa yakın değilseniz; araç durdurulup aşağıya inilmeli ve yanına yan yatarak ayaklar karına çekilip, ellerle baş ve boyun korunmalıdır. (ÇÖK-KAPAN-TUTUN)</li>' +
+          '<li>Kapalı bir otoparkta iseniz; araç dışına çıkılıp, yanına yan yatarak, ellerle baş ve boyun korunmalıdır. Yukarıdan düşebilecek tavan, tünel gibi büyük kitleler aracı belki ezecek ama yok etmeyecektir. Araç içinde olduğunuz takdirde, üzerine düşen bir parça ile aracın içinde ezilebilirsiniz.</li>' +
+          '</ul>' +
+          '<br>Deprem anında toplu taşıma araçlarındaysanız:' +
+          '<ul>' +
+          '<li>Gerekmedikçe, kesinlikle metro ve trenden inilmemelidir. Elektriğe kapılabilinir veya diğer hattan gelen başka bir metro yada tren size çarpabilir.</li>' +
+          '<li>Sarsıntı bitinceye kadar metro ya da trenin içinde, sıkıca tutturulmuş askı, korkuluk veya herhangi bir yere tutunmalı, metro veya tren personeli tarafından verilen talimatlara uyulmalıdır.</li>' +
+          '</ul>' +
+          '<br><br><h3>Deprem Sonrası Neler Yapılmalıdır?</h3>' +
+          'Kapalı alandaysanız:' +
+          '<ul>' +
+          '<li>Önce kendi emniyetinizden emin olun.Sonra çevrenizde yardım edebileceğiniz kimse olup olmadığını kontrol edin.</li>' +
+          '<li>Depremlerden sonra çıkan yangınlar oldukça sık görülen ikincil afetlerdir. Bu nedenle eğer gaz kokusu alırsanız, gaz vanasını kapatın. Camları ve kapıları açın. Hemen binayı terk edin.</li>' +
+          '<li>Dökülen tehlikeli maddeleri temizleyin.</li>' +
+          '<li>Yerinden oynayan telefon ahizelerini telefonun üstüne koyun.</li>' +
+          '<li>Acil durum çantanızı yanınıza alın, mahalle buluşma noktanıza doğru harekete geçin.</li>' +
+          '<li>Radyo ve televizyon gibi kitle iletişim araçlarıyla size yapılacak uyarıları dinleyin.</li>' +
+          '<li>Cadde ve sokakların acil yardım araçları için boş bırakın.</li>' +
+          '<li>Her büyük depremden sonra mutlaka artçı depremler olur. Artçı depremler zaman içerisinde seyrekleşir ve büyüklükleri azalır. Artçı depremler hasarlı binalarda zarara yol açabilir. Bu nedenle sarsıntılar tamamen bitene kadar hasarlı binalara girilmemelidir. Artçı depremler sırasında da ana depremde yapılması gerekenler yapılmalıdır.</li>' +
+          '</ul>' +
+          '<br>Açık alandaysanız:' +
+          '<ul>' +
+          '<li>Çevrenizdeki hasara dikkat ederek bunları not edin.</li>' +
+          '<li>Hasarlı binalardan ve enerji nakil hatlarından uzak durun.</li>' +
+          '<li>Önce hemen yakın çevrenizde acil yardıma gerek duyanlara yardım edin. Sonra mahalle toplanma noktanıza gidin.</li>' +
+          '<li>Yardım çalışmalarına katılın. Özel ilgiye ihtiyacı olan afetzedelere -yaşlılar, bebekler, özürlüler- yardımcı olun.</li>' +
+          '</ul>' +
+          '<br>Yıkıntı alandaysanız:' +
+          '<ul>' +
+          '<li>Paniklemeden durumunuzu kontrol edin.</li>' +
+          '<li>Hareket kabiliyetiniz kısıtlanmışsa çıkış için hayatınızı riske atacak hareketlere kalkışmayın. Biliniz ki kurtarma ekipleri en kısa zamanda size ulaşmak için çaba gösterecektir.</li>' +
+          '<li>Enerjinizi en tasarruflu şekilde kullanmak için hareketlerinizi kontrol altında tutun.</li>' +
+          '<li>El ve ayaklarınızı kullanabiliyorsanız su, kalorifer, gaz tesisatlarına, zemine vurmak suretiyle varlığınızı duyurmaya çalışın.</li>' +
+          '<li>Sesinizi kullanabiliyorsanız kurtarma ekiplerinin seslerini duymaya ve onlara seslenmeye çalışınız. Ancak enerjinizi kontrollü kullanın.</li>' +
+          '</ul>'
+      }
+
+      function SelButton() {
+        title.innerText = 'SEL NEDİR?'
+        text.innerHTML =
+          'Meteorolojik doğal afetlerden olan sel, yüzeyi bir süreliğine tamamen ya da kısmen su altında bırakan, ani ve büyük su baskınlarıdır. Özellikle deniz, akarsu, göl gibi büyük su birikintilerinin aşırı suyla dolması sonucu ortaya çıkan sel baskınları, meydana geldiği bölgede can ve mal kayıplarına yol açabilmektedir.' +
+          '<br><br><h3>Sele Karşı Alınması Gereken Önlemler Nelerdir?</h3>' +
+          '<ul>' +
+          '<li>Her tip meteorolojik afet için, günümüzde yağış alanları ve yağış yoğunluklarının belirlenmesinde oldukça etkili bir biçimde kullanılan radar sistemleri ve uydu verileri ile çalışan erken uyarı birimleri teşkil edilmelidir.</li>' +
+          '<li>Bu uyarı birimi ile koordineli olarak çalışacak il ve ilçelerde kurtarma birimleri oluşturulmalıdır.</li>' +
+          '<li>Bölgesel radyolar herhangi bir tehlike anında halkı bilgilendirerek uygulayacakları yöntemler konusunda uyarıda bulunmalıdırlar.</li>' +
+          '<li>Yerel yönetimler dere yataklarına yerleşim yapılmaması konusunda titizlik göstermeli, buralarda yerleşimin önlemelidir.</li>' +
+          '<li>Yerleşim yerleri içinden geçen dere yatakları ve drenaj kanallarında, ayrıca dere ve nehirlerin denizle birleştiği noktalardaki kanallarda zamanla oluşabilecek tıkanmalara düzenli olarak temizlenmeli, sürekli açık olmaları sağlanmalıdır.</li>' +
+          '<li>Yerleşim yerleri içinden geçen dere yataklarına ıslah edilmelidir.</li>' +
+          '<li>Çevredeki yeşil alanlar korunarak ve artırılarak erezyon ve sel önlenmelidir.</li>' +
+          '<li>Sel tehlikesi bulunan eğimli yamaçlarda teraslama ve ağaçlandırma yapılmalıdır.</li>' +
+          '<li>Çukur alanlarda, binaların bodrum katlarına su basma tehlikesi yüksek olduğundan, bu türlü yerlerde bodrum yapılmamalı, su basman kotu yüksek tutulmalıdır.</li>' +
+          '<li>Şehir içlerinde yeterince yağmur suyu kanalı olmalı ve bunların sürekli bakımları yapılmalıdır.</li>' +
+          '<li>Bulunduğumuz yerleşim yerlerinde sel uyarı işaretleri ve uyarı sistemleri öğrenilmelidir.</li>' +
+          '<li>Konutlar diğer afetlerde olduğu gibi sele karşı da sigortalatılmalıdır.</li>' +
+          '</ul>' +
+          '<br><br><h3>Sel Sırasında Yapılması Gerekenler Nelerdir?</h3>' +
+          '<ul>' +
+          '<li>Pencere ve kapıları korumak için taşınabilir engeller yerleştirilebilir.</li>' +
+          '<li>Suyla sürüklenen enkazın yönünü kum torbalarıyla değiştirerek konutumuzdan uzak tutabiliriz.</li>' +
+          '<li>Bazı durumlarda bütün kapıları açarak suyun binanın içinden akmasına izin vermek çok daha iyidir; böylece su basıncının yapının taşıyıcı sistemine zarar vermesi önlenebilir.</li>' +
+          '<li>Su yatağı ve çukur bölgeler hemen terk edilmelidir.</li>' +
+          '<li>Sel bölgesini hemen terk ederek yüksek ve güvenli bölgelere gitmeli ancak asla sudan karşıdan karşıya geçmeye çalışılmamalıdır, çünkü su aniden derinleşebilir.</li>' +
+          '<li>Elektrik kaynaklarından uzak durulmalıdır, elektrik çarpabilir!...</li>' +
+          '<li>Özellikle geceleri, selin tehlikelerini görmek güçleşeceğinden daha dikkatli olunmalıdır.</li>' +
+          '<li>Selden ölümlerin çoğu sel sularına girilmesinden kaynaklanmaktadır. Çünkü ayak bileğimize kadar olan sel suyu bizi; dizimize kadar olan sel suları ise otomobillerimizi sürükleyip götürebilir. SELDEN *KAÇMAK İÇİN SEL SULARINA KESİNLİKLE GİRMEYİNİZ!…</li>' +
+          '<li>Sel suları ayrıca kanalizasyon ve zehirli kimyasal maddeler de içerirler. Çocukların sel suları ile oynamasına müsaade edilmemelidir.</li>' +
+          '<li>Konutu terk ederken elektrik ve su vanaları kapatılmalıdır.</li>' +
+          '<li>Sel sırasında elektrikleriniz kesilebilir. Binada gaz sızıntısı olduğunu düşünüyorsanız, herhangi bir elektrikli alet ve ışık kullanmayın. Işığa ihtiyacınız olduğunda pilli fener kullanın.</li>' +
+          '<li>Evinizdeki küvet ve bidonları şebeke suyunun kirlenme ihtimaline karşı temiz su ile doldurunuz.</li>' +
+          '</ul>' +
+          'Sel sırasında araç içerisindeyseniz:' +
+          '<ul>' +
+          '<li>Asla su ile kaplı yoldan gitmeye çalışılmamalıdır. Ani sellerin meydana getirdiği ölümlerin yarısı araç içindedir.</li>' +
+          '<li>Asla sel sularının bulunduğu bölgelerde araç kullanmayınız.</li>' +
+          '<li>Araçta herhangi bir arıza oluştuysa hemen terk edilerek yüksek bir yere çıkılmalıdır. Yollar akan sular tarafından doldurulacağı için eğer araç 60cm yükseklikteki hareket eden suda kalmışsa su onu kaldırıp sürükleyebilecektir.</li>' +
+          '</ul>' +
+          '<br><br><h3>Sel Sonrasında Yapılması Gerekenler Nelerdir?</h3>' +
+          '<ul>' +
+          '<li>Sel felaketi suların geri çekilmesi ile sona ermeyebilir. Dolayısı ile otoritelerin geri dönün uyarısı alınmadan ve herhangi bir hasarı olup olmadığı kontrol edilmeden binalara kesinlikle girilmemelidir.</li>' +
+          '<li>Binalar kontrol edilirken su geçirmez ayakkabı ve pille çalışan el fenerleri kullanılmalıdır.</li>' +
+          '<li>Konutların duvarlarında, katlardaki zeminlerde ve pencerelerdeki hasarlar, tavan, sıva vb. malzemelerin dökülmesi riskinin olup olmadığı kontrol edilmelidir.</li>' +
+          '<li>Sigorta işlemleri için zarar gören yerlerin fotoğrafı çekilmelidir.</li>' +
+          '<li>Sel sonrasında da ikincil afet olarak yangınlar çıkabilir. Bu nedenle evde gaz sızıntısı, suyun altında kalmış elektrik aksamı, fırın, ocak ve elektrikle çalışan eşyaların olmadığına emin olun.</li>' +
+          '<li>Sel sırasında evinizde kalmış yiyecekler varsa bunları kesinlikle kullanmayın. (Konservelerde dahil)</li>' +
+          '<li>Konuttaki sel suları binanın daha fazla zarar görmemesi için yavaş, yavaş boşaltılmalıdır.</li>' +
+          '<li>Lağım çukurları, mikroplu tanklar ve atık su sistemleri sel sonrası insan sağlığına zarar vermemeleri için mutlaka yetkililere kontrol ettirilmelidir.</li>' +
+          '<li>Konuta sel sırasında yılan ve benzeri zararlı hayvanlar girebilir. Bu konuda da dikkatli olmak gerekir.</li>' +
+          '<li>Özel ilgiye ihtiyacı olan afetzedelere -yaşlılar, bebekler, özürlüler- yardımcı olunmalıdır.</li>' +
+          '</ul>'
+      }
+
+      function HeyelanButton() {
+        title.innerText = 'HEYELAN NEDİR?'
+        text.innerHTML =
+          'Özellikle yüksek ve eğimli bölgelerde meydana gelen gevşek toprak, kaya veya yapay dolgu malzemelerinden oluşan zeminlerin yerçekimi, su ve benzeri etkenler sonucu hareket etmesi olayıdır. Kayalardan veya toprak örtüsünden oluşan kütlelerin yerçekiminin etkisi ile koparak yer değiştirmesi olayıdır. Yeryüzünde çok sık yaşanan bir kütle hareketidir. Hızla gerçekleşebileceği gibi uzun bir zaman diliminde de meydana gelebilir. Türkiye’de de eğim, yükselti ve yağışın fazla olduğu Karadeniz Bölgesi, heyelanların en çok görüldüğü bölgelerdir.' +
+          '<br><br><h3>Heyelan Anında Yapılması Gerekenler Nelerdir?</h3>' +
+          'Açık alandaysanız:' +
+          '<ul>' +
+          '<li>Tehlike anında heyelan veya çamur akıntısının yolundan uzak durarak hemen mümkün olduğu kadar yükseklere doğru uzaklaşın ve çevrenizde yaşayan insanları toprak kaymasına karşı uyarın.</li>' +
+          '<li>Çamur ve moloz akmasından kaçabilecek zamanınız veya etrafınızda arkasına saklanacağınız sağlam bir yapı yoksa ÇÖK-KAPAN-TUTUN hareketi ile başınızı ve boynunuzu koruyun.</li>' +
+          '</ul>' +
+          '<br>Kapalı alandaysanız:' +
+          '<ul>' +
+          '<li>Binadan çıkmak ve heyelan bölgesinden uzaklaşmak için yeterli vaktiniz yoksa içeride kalın.</li>' +
+          '<li>Sağlam eşyaların altında ve ya yanında hayat üçgeni oluşturarak ÇÖK-KAPAN-TUTUN hareketini uygulayın.</li>' +
+          '</ul>' +
+          '<br><br><h3>Heyelan Sonrası Yapılması Gerekenler Nelerdir?</h3>' +
+          '<ul>' +
+          '<li>Her şeyden önce güvencede olduğunuzdan emin olun. Gerekiyorsa tehlikeli bölgeden uzaklaşarak kendinizi güvenceye alın.</li>' +
+          '<li>Yakınınızda bulunan elektrik, gaz ve su kaynaklarını hemen kapatın. Çevrenizde gaz kaçağı olmadığından emin olana kadar bulunduğunuz yeri kibrit veya diğer yanıcı maddeler ve ya elektrikli aletlerle aydınlatmaya çalışmayın. Fener kulanın.</li>' +
+          '<li>Çevrenizde yaralı veya yardıma muhtaç kişiler varsa, yangın ve yeni bir heyelan gibi bir tehlike yoksa onları yerlerinden oynatmayın.</li>' +
+          '<li>Tehlikeli duvarlar, çatılar ve bacalara karşı çevrenizdekileri uyarın ve bunların etrafında dolaşmayın.</li>' +
+          '<li>Radyo ve televizyon gibi kitle iletişim araçlarıyla size yapılacak uyarıları dinleyin.</li>' +
+          '<li>Cadde ve sokakların acil yardım araçları için boş bırakın.</li>' +
+          '<li>Eşya almak için zarar görmüş binalara girmeyin.</li>' +
+          '</ul>'
+      }
+
+      function YangınButton() {
+        title.innerText = 'ORMAN YANGINI NEDİR?'
+        text.innerHTML =
+          'Doğal ya da insani sebeplerden ortaya çıkabilir. Ormanların kısmen veya tamamen yanması olayıdır. Genellikle yıldırım düşmesi, yanardağ patlaması ve yüksek sıcaklık gibi doğal sebeplerle ortaya çıkar. İnsanları attığı sigaralar, cam parçaları ve tarımsal uygulamalar sonucu da ortaya çıkabilir. Ekolojik olarak birçok zarara yol açan orman yangınları, kuraklık ve iklim değişikliklerinin de sebepleri arasındadır.' +
+          '<br><br><h3>Orman Yangını Anında Yapılması Gerekenler Nelerdir?</h3>' +
+          '<ul>' +
+          '<li>Telaşa kapılmadan çevrede yangın ihbar düğmesi varsa ona basılmalıdır,</li>' +
+          '<li>110 nolu telefondan yangın itfaiyeye bildirilmelidir. Yangının adresi en kısa ve doğru şekilde mümkünse yangının cinsi ile birlikte (bina, benzin, ahşap, araç vb)bildirilmelidir.</li>' +
+          '<li>İtfaiye gelinceye kadar mümkünse yangını söndürmek için eldeki mevcut imkanlardan yararlanılmalıdır.</li>' +
+          '<li>Yangın kapalı alandaysa yayılmasını önlemek için kapı ve pencereler kapatılmalıdır,</li>' +
+          '<li>Bunlar yapılırken kendimiz ve başkaları tehlikeye atılmamalıdır,</li>' +
+          '<li>Eğer alevler çoğalmışsa ve binadan çıkış olanaksızsa, yatak altlarına dolaplara saklanılmamalı, pencereden dışarıdakilerle iletişim kurulmaya çalışılmalıdır,</li>' +
+          '<li>Dumandan boğulmamak için yardım gelene kadar eğilerek ve sürünerek hareket edilmeli, ağız ve burun ıslak bez ya da mendille kapatılarak nefes alınmalıdır,/li>' +
+          '<li>Duman ve yanık kokusu başka odadan geliyorsa kapılar açılmamalı, kapıya dokunulmamalıdır.</li>' +
+          '<li>Kıyafetiniz alev almışsa; koşmadan durup yere yatarak yuvarlanılmalıdır. Battaniye türü örtüler alınarak alevler boğulmaya çalışılmalıdır.</li>' +
+          '<li>Eğer vücudumuzda yanık varsa, hemen soğuk suya tutulmalıdır.</li>' +
+          '</ul>' +
+          '<br><br><h3>Orman Yangınlarının Çıkma Nedenleri Nelerdir?</h3>' +
+          'İhmal ve dikkatsizlik nedeniyle çıkan orman yangınları:' +
+          '<ul>' +
+          '<li>Ormanda güvenlik tedbiri alınmadan ateş yakılması,</li>' +
+          '<li>Yakılan ateşin söndürmeden bırakılması,</li>' +
+          '<li>Sönmemiş sigara izmariti ve kibritin yere atılması.</li>' +
+          '<li>Orman içinde veya bitişiğindeki tarlalarda istenmeyen ot veya anızın yakılması,</li>' +
+          '<li>Gece aydınlatma için ormanda ateşle dolaşılması,</li>' +
+          '<li>Cam ve cam kırıklarının ormanda bırakılması,</li>' +
+          '<li>Çocukların orman içinde ateşle oynamaları.</li>' +
+          '</ul>' +
+          '<br>Kasıtlı çıkarılan orman yangınları:' +
+          '<ul>' +
+          '<li>Tarla veya otlakları genişletmek için ormanın bilerek yakılması,</li>' +
+          '<li>Orman içinde yapılan kanunsuz işleri gizlemek için yangın çıkarılması,</li>' +
+          '<li>Birilerinden intikam almak veya bir şeyi sabote etmek için yangın çıkarılması</li>' +
+          '<li>Yabani hayvanları uzaklaştırmak için yangın çıkarılması.</li>' +
+          '</ul>' +
+          '<br><br><h3>Orman Yangınlarının Zararları Nelerdir?</h3>' +
+          '<ul>' +
+          '<li>Biyolojik çeşitlilik büyük zarar görür.</li>' +
+          '<li>Ormanlarda yaşayan canlıların yaşam alanları yok olur.</li>' +
+          '<li>Canlı ve cansız örtünün yok olmasıyla erezyon, sel-taşkın ve hava Kirliliği gibi doğal afetlerin sayısında ve hızında artma görülür.</li>' +
+          '<li>İklim sisteminde (sıcaklık, rüzgâr, nem ve yağışa doğrudan etki ederek) bozulmalar görülür.</li>' +
+          '<li>Orman ve orman ürünlerine dayalı turizm, sağlık, spor, avcılık gibi sektörler olumsuz yönde etkilenir.</li>' +
+          '</ul>'
+      }
+
+      function CigButton() {
+        title.innerText = 'ÇIĞ NEDİR?'
+        text.innerHTML =
+          'Aşırı kar yağışının yaşanan bölgelerde meydana gelir. Eski kar tabakasının yeni kar tabakasıyla karışamaması sonucu bir ses veya hayvan veya insanların herhangi bir müdahalesi ile büyük kar kütlelerinin yer değiştirmesi veya kayması olayıdır. Profesyonel dağcıları ve kayakçıları tehdit eden bu doğal afet, dağ veya tepelerin eteklerindeki kışlık turistik mekânları da etkileyebilir.' +
+          '<br><br><h3>Çığa Yakalanırsanız Neler Yapılmalıdır?</h3>' +
+          '<ul>' +
+          '<li>Çığın büyüklüğüne, hızına, patika genişliğine, etraftaki araçlara veya doğal cisimlere bağlı olarak bulunulan alandan ayrılmaya karar verilmelidir.</li>' +
+          '<li>Çığın daha yavaş ve akış yüksekliği düşük olan patika kenarlarına doğru gidilmeye çalışılmalıdır.</li>' +
+          '<li>Diğer insanlar uyarılmalıdır. (ses, ıslık, düdük, korna, vb.)</li>' +
+          '<li>Çığa yakalanmanız kesin ise, batonlar ve kayaklar çıkarılmalı ve herhangi bir cisme tutunmaya çalışılmalıdır.</li>' +
+          '<li>Kırılmış ağaç ve kaya parçalarından korunmaya çalışılmalıdır.</li>' +
+          '<li>Yerden destek alarak yüzme hareketi ile çığ yüzeyinde kalmaya çalışılmalıdır.</li>' +
+          '<li>Ağız sıkıca kapatılmalı, hava kesesi oluşturmaya çalışılmalıdır, bu arada baş sağa sola doğru çevrilmeye çalışılmalıdır.</li>' +
+          '<li>Akış esnasında oturma pozisyonu almaya çalışılarak (eller ve bacaklar bitişik) çığ durmadan önce bacaklar ile yer sertçe itilip (eğer zemin altta veya zemindeki kar setleşmeye başlamış ise) kalkılmaya çalışılmalıdır.</li>' +
+          '<li>Bayılacağınızı hissediyorsanız, buna direnmemelidir. Çünkü baygın bir insan daha az oksijen tüketir.</li>' +
+          '<li>Bazı olaylar sırt çantası taşıyan kişilerin çığ topuğu civarında, yüzeyde kalma şanslarının taşımayanlardan biraz daha fazla olduğunu göstermiştir.</li>' +
+          '</ul>' +
+          '<br><br><h3>Eğer Araç İçerisindeyseniz Neler Yapılmalıdır?</h3>' +
+          '<ul>' +
+          '<li>Motoru durdurulup, ışıklar söndürülmelidir.</li>' +
+          '<li>Oksijeni iyi kullanmak için, sigara içilmemeli ve kibrit yakılmamalıdır.</li>' +
+          '<li>Telsiz var ise çağrı yapılmalı ve telsiz sürekli alıcı konumunda tutulmalıdır.</li>' +
+          '<li>Aracın kornası çalınarak dışarıya ses duyurulmaya çalışılmalıdır.</li>' +
+          '<li>Araçta çubuk benzeri bir alet var ise yukarı doğru batırılıp aramaya gelenlerin çubuğu ve dolayısı ile yerimizi görmeleri sağlanmalıdır.</li>' +
+          '<li>En son olarak ise, karı kazmak gerekir. Ancak, kendinizi kar içinde emniyette hissetmiyorsanız araçta kalmanız gerekir.</li>' +
+          '</ul>'
+      }
+    </script>
+  </body>
+</html>

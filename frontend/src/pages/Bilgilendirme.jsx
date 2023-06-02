@@ -1,5 +1,11 @@
+import AdminTag from '../components/AdminTag'
+
 function Bilgilendirme() {
-  return <div>Bilgilendirme</div>
+  return (
+    <div>
+      <AdminTag />
+    </div>
+  )
 }
 
 export default Bilgilendirme
